@@ -1,12 +1,20 @@
-import express from "express";
-import studentRouter from "./studentRouter.js";
+const express = require("express");
+const userRouter = require("./routes/userRouter.js");
+const alarmRouter = require("./routes/alarmRouter.js");
+const smokeRouter = require("./routes/smokeRouter.js");
+const lifecycleRouter = require("./routes/lifecycleRouter.js");
+const FLSRouter = require("./routes/FLSRouter.js");
 
 const app = express();
 app.use(express.json()); // to read JSON request body
 
-// use the router
-app.use("/", studentRouter);
+// use the routers
+app.use("/", userRouter);
+app.use("/", alarmRouter);
+app.use("/smoke", smokeRouter);
+app.use("/",lifecycleRouter);
+app.use("/",FLSRouter);
 
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+app.listen(8000, () => {
+  console.log("Server running on http://localhost:8000");
 });
