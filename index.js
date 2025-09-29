@@ -6,6 +6,12 @@ const lifecycleRouter = require("./routes/lifecycleRouter.js");
 const FLSRouter = require("./routes/FLSRouter.js");
 const floormapRouter = require("./routes/floormapRouter.js");
 const constructionsRouter = require("./routes/constructionsRouter.js");
+const communityRouter = require("./routes/communityRouter.js");
+const incidentRouter= require("./routes/incidentRouter.js");
+const causeeffectmatrixRouter= require("./routes/causeeffectmatrixRouter.js");
+const notifyRoutes = require("./routes/notifyRouter.js");
+const mimicRouter = require("./routes/mimicRouter.js");
+
 
 const app = express();
 app.use(express.json()); // to read JSON request body
@@ -18,6 +24,13 @@ app.use("/",lifecycleRouter);
 app.use("/",FLSRouter);
 app.use("/",floormapRouter);
 app.use("/",constructionsRouter);
+app.use("/community",communityRouter);
+app.use("/",incidentRouter);
+app.use("/",causeeffectmatrixRouter);
+app.use("/users", notifyRoutes);
+app.use("/",mimicRouter);
+
+
 
 app.listen(8000, () => {
   console.log("Server running on http://localhost:8000");
