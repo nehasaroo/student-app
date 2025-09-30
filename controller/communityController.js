@@ -4,7 +4,7 @@ const admin = require("firebase-admin");
 
 
 // Helper function to get building collection name
-const getBuildingCollectionName = (buildingName) => {
+exports.getBuildingCollectionName = (buildingName) => {
   return `${buildingName}BuildingDB`
 }
 
@@ -44,7 +44,7 @@ exports.createCommunity = async (req, res) => {
     }
 
     // Create community document
-    const communityRef = await db.collection("communities").add(communityData)
+    exports. communityRef = await db.collection("communities").add(communityData)
 
     res.status(201).json({
       message: `Community '${communityName}' created successfully`,
